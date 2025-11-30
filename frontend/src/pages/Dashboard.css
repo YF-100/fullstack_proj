@@ -1,0 +1,313 @@
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.dashboard-header h1 {
+  font-size: 32px;
+  color: var(--text-light);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  font-weight: 700;
+}
+
+.workout-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.tab-button {
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  border-radius: 8px 8px 0 0;
+}
+
+.tab-button:hover {
+  color: var(--text-light);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tab-button.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+  background: rgba(76, 175, 80, 0.1);
+  box-shadow: 0 -2px 10px rgba(76, 175, 80, 0.2);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 64px 32px;
+}
+
+.empty-state h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.empty-state p {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.workouts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 24px;
+}
+
+.workout-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  animation: slideUp 0.5s ease-out backwards;
+}
+
+.workout-card:nth-child(1) { animation-delay: 0.1s; }
+.workout-card:nth-child(2) { animation-delay: 0.2s; }
+.workout-card:nth-child(3) { animation-delay: 0.3s; }
+.workout-card:nth-child(4) { animation-delay: 0.4s; }
+.workout-card:nth-child(5) { animation-delay: 0.5s; }
+.workout-card:nth-child(6) { animation-delay: 0.6s; }
+
+.workout-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-lg), 0 0 30px rgba(76, 175, 80, 0.3);
+}
+
+.workout-card.completed {
+  background-color: #f1f8f4;
+  border: 2px solid #4CAF50;
+}
+
+.workout-header {
+  margin-bottom: 16px;
+}
+
+.workout-header h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.completed-indicator {
+  color: #4CAF50;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.completion-info {
+  font-size: 13px;
+  color: #4CAF50;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.progress-bar {
+  position: relative;
+  height: 32px;
+  background-color: #e0e0e0;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  right: -100%;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%, transparent);
+  animation: shimmer 6s linear infinite;
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  z-index: 1;
+}
+
+.workout-date {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.workout-stats {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 20px;
+  padding: 16px;
+  background-color: var(--bg-color);
+  border-radius: 8px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.workout-exercises {
+  margin-bottom: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.workout-exercises::-webkit-scrollbar {
+  width: 6px;
+}
+
+.workout-exercises::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.workout-exercises::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.workout-exercises::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.exercise-item {
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+.exercise-item:hover {
+  background-color: #f8f9fa;
+  border-color: var(--primary-color);
+}
+
+.exercise-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+  width: 100%;
+}
+
+.exercise-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--primary-color);
+  flex-shrink: 0;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.exercise-checkbox:checked {
+  animation: checkboxPop 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes checkboxPop {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+}
+
+.exercise-checkbox:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.exercise-name {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+.exercise-name.completed {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.exercise-sets {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 400;
+  flex-shrink: 0;
+}
+
+.exercise-preview {
+  padding: 8px 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.workout-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.workout-actions .btn {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .workouts-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,157 @@
+.create-workout-header {
+  margin-bottom: 32px;
+}
+
+.create-workout-header h1 {
+  font-size: 32px;
+  color: var(--text-primary);
+}
+
+.workout-form {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.exercises-section {
+  margin-top: 32px;
+}
+
+.exercises-section > h3 {
+  font-size: 24px;
+  margin-bottom: 24px;
+  color: var(--text-primary);
+}
+
+.exercise-block {
+  margin-bottom: 24px;
+  background-color: var(--bg-color);
+  border: 2px solid var(--border-color);
+}
+
+.exercise-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.exercise-header h4 {
+  font-size: 18px;
+  color: var(--primary-color);
+}
+
+.exercise-select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: inherit;
+  background-color: white;
+  cursor: pointer;
+}
+
+.exercise-select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.sets-section {
+  margin-top: 16px;
+}
+
+.sets-mode-toggle {
+  margin-bottom: 16px;
+}
+
+.sets-section > label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.quick-sets, .custom-sets {
+  margin-top: 12px;
+}
+
+.quick-sets label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.quick-sets-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.quick-input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quick-input .input-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.quick-input input {
+  margin: 0;
+}
+
+.quick-sets-preview {
+  padding: 12px;
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.set-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 1fr auto;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.set-number {
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.set-row input {
+  margin: 0;
+}
+
+.form-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.form-actions .btn {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .set-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .set-number {
+    grid-column: 1 / -1;
+  }
+
+  .set-row button {
+    grid-column: 1 / -1;
+  }
+}
