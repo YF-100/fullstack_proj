@@ -102,33 +102,39 @@ fullstack_proj/
 │   ├── db/
 │   │   ├── __init__.py
 │   │   ├── database.py             # Database connection and session
-│   │   └── models.py               # SQLAlchemy models
+│   │   └── models.py               # SQLAlchemy models (User, Workout, Exercise, etc.)
 │   ├── schemas/
 │   │   ├── __init__.py
 │   │   ├── users.py                # User Pydantic schemas
-│   │   └── workouts.py             # Workout Pydantic schemas
+│   │   ├── workouts.py             # Workout Pydantic schemas
+│   │   └── tracking.py             # Sleep & Nutrition schemas
 │   ├── services/
 │   │   ├── __init__.py
-│   │   ├── auth.py                 # Authentication logic
+│   │   ├── auth.py                 # Authentication logic (JWT, password hashing)
 │   │   └── workouts.py             # Workout business logic
 │   └── api/
 │       ├── __init__.py
-│       ├── deps.py                 # API dependencies
+│       ├── deps.py                 # API dependencies (get_current_user)
 │       └── routers/
 │           ├── __init__.py
-│           ├── auth.py             # Authentication endpoints
-│           ├── users.py            # User management endpoints
-│           └── workouts.py         # Workout endpoints
-├── tests/                          # Backend tests
+│           ├── auth.py             # Authentication endpoints (login, register)
+│           ├── users.py            # User management endpoints (CRUD)
+│           ├── workouts.py         # Workout endpoints (CRUD + exercises)
+│           └── tracking.py         # Sleep & Nutrition tracking endpoints
+├── tests/                          # Backend tests (31 tests, 81% coverage)
 │   ├── __init__.py
-│   ├── conftest.py                 # Pytest fixtures
-│   ├── unit/
-│   │   ├── test_auth_service.py
-│   │   └── test_workout_service.py
-│   └── integration/
-│       ├── test_auth_api.py
-│       ├── test_users_api.py
-│       └── test_workouts_api.py
+│   ├── conftest.py                 # Pytest fixtures (test DB, client, users)
+│   ├── unit/                       # Unit tests (12 tests)
+│   │   ├── __init__.py
+│   │   ├── test_auth_service.py    # Auth service tests (hash, JWT)
+│   │   └── test_workout_service.py # Workout service tests
+│   └── integration/                # Integration tests (19 tests)
+│       ├── __init__.py
+│       ├── test_auth_api.py        # Auth API tests (login, register)
+│       ├── test_users_api.py       # User API tests (CRUD)
+│       └── test_workouts_api.py    # Workout API tests (full flow)
+├── scripts/                        # Utility scripts
+│   └── create_demo_user.py         # Demo user with 60 days of data
 ├── frontend/                       # React frontend
 │   ├── public/                     # Static assets
 │   ├── src/
@@ -156,19 +162,19 @@ fullstack_proj/
 │   ├── package.json
 │   ├── vite.config.js
 │   └── Dockerfile
+├── .github/
+│   └── workflows/
+│       └── tests.yml               # GitHub Actions CI/CD (unit + integration tests)
 ├── .env                            # Backend environment variables
 ├── .env.example                    # Environment variables template
-├── .gitignore
-├── .coveragerc                     # Coverage configuration
-├── docker-compose.yml              # Multi-service orchestration
+├── .gitignore                      # Git ignore (node_modules, __pycache__, etc.)
+├── docker-compose.yml              # Multi-service orchestration (db, api, frontend)
 ├── Dockerfile                      # Backend container definition
 ├── pytest.ini                      # Pytest configuration
 ├── requirements.txt                # Python dependencies
-├── seed_data.py                    # Database seeding script
-├── README.md                       # Main documentation
-├── QUICKSTART.md                   # Quick start guide
-├── HOW_TO_RUN.md                   # Detailed run instructions
-└── FRONTEND_IMPLEMENTATION.md      # Frontend details
+├── setup_and_demo.sh               # 🚀 Complete setup script (Docker + tests + demo)
+├── run_tests.sh                    # Quick test runner
+└── README.md                       # Main documentation (this file)
 ```
 
 ## 🚀 Installation & Setup
