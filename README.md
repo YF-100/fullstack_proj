@@ -85,7 +85,7 @@ GymTrack is developed as part of the **E5 DSIA 5102A - Application Fullstack dat
 
 ### Testing
 - **pytest** - Backend testing framework
-- **pytest-cov** - Code coverage (78%)
+- **pytest-cov** - Code coverage (81%)
 - **httpx** - HTTP client for testing
 - **TestClient** - FastAPI test client
 
@@ -203,7 +203,7 @@ Ce script fait **TOUT automatiquement**:
 **Compte de démonstration créé automatiquement:**
 - 👤 **Username**: `demo`
 - 🔑 **Password**: `demo123`
-- 📊 **Données**: 30 entraînements, 42 logs de sommeil, 28 logs nutrition
+- 📊 **Données**: 35 entraînements, 42 logs de sommeil, 31 logs nutrition
 
 **Accès après installation:**
 - **Application Web**: http://localhost:3000
@@ -241,10 +241,12 @@ Ce script fait **TOUT automatiquement**:
    - **Backend API** on port 8000
    - **Frontend App** on port 3000
 
-4. **Seed the database** (optional, in a new terminal):
+4. **Create demo user with sample data** (optional, in a new terminal):
    ```bash
-   docker-compose exec api python seed_data.py
+   docker-compose exec api python scripts/create_demo_user.py
    ```
+   
+   This creates a demo user (username: `demo`, password: `demo123`) with 60 days of realistic workout, sleep, and nutrition data.
 
 5. **Access the application**:
    - **Frontend**: http://localhost:3000
@@ -564,7 +566,6 @@ pytest tests/unit/test_auth_service.py
 - [ ] Add request validation and sanitization
 - [ ] Implement refresh tokens
 - [ ] Add logging and monitoring
-- [ ] CI/CD pipeline setup
 - [ ] Performance optimization and indexing
 
 ## 📖 Course Requirements
@@ -641,5 +642,5 @@ docker-compose restart
 
 **Course**: E5 DSIA 5102A - Application Fullstack data  
 **Institution**: ESIEE Paris  
-**Year**: 2025
+**Year**: 2024-2025  
 **Authors**: Yassin Farahat & Seongjag AHN
