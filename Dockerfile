@@ -22,7 +22,6 @@ COPY ./app ./app
 COPY ./tests ./tests
 COPY ./scripts ./scripts
 COPY pytest.ini .
-COPY .coveragerc .
 
 # Expose port
 EXPOSE 8000
