@@ -642,5 +642,5 @@ docker-compose restart
 
 **Course**: E5 DSIA 5102A - Application Fullstack data  
 **Institution**: ESIEE Paris  
-**Year**: 2024-2025  
+**Year**: 2025  
 **Authors**: Yassin Farahat & Seongjag AHN
